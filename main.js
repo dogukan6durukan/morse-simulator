@@ -6,13 +6,30 @@ let button = document.querySelector("#button");
 let restart = document.querySelector("#restart");
 let backspace = document.querySelector("#backspace");
 
+let clicked = 0;
+
 let pressStart;
 let gapTimer;
 
 let tokens;
+let audio = new Audio("beep-sound.mp3");
+
+let warningInput = "Click the button to start";
+let warningOutput = "Interpreted Morse will be here";
+
+if(!clicked) {
+ input.textContent = warningInput;
+ output.textContent = warningOutput;
+}
 
 button.addEventListener("pointerdown", () => {
+    if(!clicked) {
+        clicked = 1;
+        input.textContent = "";
+        output.textContent = "";
+    }
     pressStart = Date.now();
+    audio.play();
     clearTimeout(gapTimer);
 });
 
@@ -34,11 +51,16 @@ button.addEventListener("pointerup", () => {
 });
 
 restart.addEventListener("click", () => {
-    input.textContent = "";
-    output.textContent = "";
+    clicked = 0;
+    input.textContent = warningInput;
+    output.textContent = warningOutput;
 })
 
 backspace.addEventListener("click", () => {
+    // if(input.textContent == "") {
+    //     input.textContent = warningInput;
+    //     output.textContent = warningOutput;
+    // }
     input.textContent = input.textContent.trim().slice(0, -1);
     parseMorse();
 })
