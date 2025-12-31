@@ -11,12 +11,12 @@ let gapTimer;
 
 let tokens;
 
-button.addEventListener("mousedown", () => {
+button.addEventListener("pointerdown", () => {
     pressStart = Date.now();
     clearTimeout(gapTimer);
 });
 
-button.addEventListener("mouseup", () => {
+button.addEventListener("pointerup", () => {
     const duration = (Date.now() - pressStart) / 1000;
 
     if (duration > 0.25) {
