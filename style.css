@@ -8,8 +8,8 @@ body {
 .characters {
     width: 75%;
     margin: 0 auto;              /* ortalar */
-    padding: 20px;
     color: #fff;
+    padding: 0 20px 20px 20px;
 }
 
 .characters-inner {
@@ -70,10 +70,14 @@ h1 {
 .action {
     display: flex;
     justify-content: center;
-    padding: 20px 0;
+    padding-top: 20px;
 }
 
-#status {
+.meaning {
+    padding: 10px 0;
+}
+
+#status, .meaning {
     color : #fff;
 }
 
@@ -109,7 +113,6 @@ h1 {
     display: flex;
     gap: 10px;
 }
-
 
 #backspace {
     margin-left: 8px ;

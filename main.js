@@ -73,14 +73,17 @@ restart.addEventListener("click", () => {
     result.classList.replace("result-end", "result-begin");
 
 })
-
 backspace.addEventListener("click", () => {
     if (input.textContent === warningInput) return;
 
-    gapToken++; 
+    gapToken++;
     clearTimeout(gapTimer);
 
-    input.textContent = input.textContent.trim().slice(0, -1);
+    if (input.textContent.endsWith(" / ")) {
+        input.textContent = input.textContent.slice(0, -3);
+    } else {
+        input.textContent = input.textContent.trim().slice(0, -1);
+    }
 
     if (input.textContent.length === 0) {
         restartStatus = 1;
@@ -93,21 +96,22 @@ backspace.addEventListener("click", () => {
     parseMorse();
 });
 
-
 function parseMorse() {
-    tokens = input.textContent.trim().split(" / ");
+    tokens = input.textContent
+        .split(" / ")
+        .filter(t => t !== "");
+
     let result = "";
 
     for (let token of tokens) {
         if (MORSE_ALPHABET[token]) {
             result += MORSE_ALPHABET[token] + " ";
-        } else {
-            result += "";
         }
     }
 
     output.textContent = result;
 }
+
 
 function printCharacters() {
     let tokens = Object.keys(MORSE_ALPHABET);
@@ -118,3 +122,6 @@ function printCharacters() {
     }
 }
 printCharacters();
+
+
+
