@@ -1,4 +1,0 @@
-Still the / generated at the end of input 
-after 1 seconds - Click the button to start /
-
-Backspace bug

@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script type="module" src="main.js"></script>
     <title>Morse Simulator</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div class="wrapper">
+      <div class="top">
         <h1>Morse Code Simulator</h1>
         <button id="button">Click Me</button>
-    </div>
+      </div>
 
-<div class="action">
-    <div class="container">
-        <div class="result">
+      <div class="action">
+        <div class="container">
+          <span id="status"></span>
+          <div class="result">
             <div class="input"></div>
             <div class="output"></div>
-        </div>
+          </div>
 
-        <div class="bottom-btn">
+          <div class="bottom-btn">
             <button id="restart"></button>
             <button id="backspace">Backspace</button>
+          </div>
         </div>
+      </div>
+
+      <div class="characters">
+        <div class="characters-inner">
+          <h2>Characters</h2>
+
+          <div class="character-list">
+            <div class="symbols">symbols</div>
+            <div class="words">words</div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-
-
-
-
-</body>
+  </body>
 </html>
